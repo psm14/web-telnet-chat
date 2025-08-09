@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  node-chat:
+    build: .
+    image: node-chat:latest
+    environment:
+      - NODE_ENV=production
+      # You can override these via `.env` or CLI
+      # - PORT=3000
+      # - TELNET_PORT=2323
+    ports:
+      - "3000:3000"   # HTTP
+      - "2323:2323"   # Telnet
+    restart: unless-stopped
+
